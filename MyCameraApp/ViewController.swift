@@ -45,7 +45,21 @@ class ViewController: UIViewController, UINavigationControllerDelegate, UIImageP
     
     @IBAction func snsButtonAction(_ sender: Any) {
         
-        
+//        表示画像をアンラップしてシェア画像を取り出す
+        if let shareImage = pictureimage.image {
+            
+//            UIActivityViewControllerに渡す配列を作成
+            let shareItems = [shareImage]
+            
+//            UIActivityViewControllerにシェア画像を渡す
+            let controller = UIActivityViewController(activityItems: shareItems, applicationActivities: nil)
+            
+//            ipadで落ちてまう対策
+            controller.popoverPresentationController?.sourceView = view
+            
+//            UIActivityViewControllerで表示
+            present(controller, animated: true, completion: nil)
+        }
         
         }
     
