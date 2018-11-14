@@ -19,27 +19,48 @@ class ViewController: UIViewController, UINavigationControllerDelegate, UIImageP
     
     @IBAction func cameraButtonAction(_ sender: Any) {
         
-//        カメラが利用可能かをチェック
+//        カメラかフォトライブラリーのどちらから画像取得を選択
+        let alertController = UIAlertController(title: "確認", message: "選択してください", preferredStyle: .actionSheet)
+        
+        
+//        カメラが起動可能かチェック
         if UIImagePickerController.isSourceTypeAvailable(.camera) {
+//        カメラを起動するための選択肢を定義
+            let cameraAction = UIAlertAction(title: "カメラ", style: .default, handler: { (action:UIAlertAction) in
+//                カメラの起動
+                let imagePickerController = UIImagePickerController()
+                imagePickerController.sourceType = .camera
+                imagePickerController.delegate = self
+                self.present(imagePickerController, animated: true, completion: nil)
+        })
             
-            print("カメラは利用できます。")
-            
-//            UIImagePickerControllerのインスタンス作成
-            let imagePickerController = UIImagePickerController()
-            
-//            sourceTypeにcameraを設定
-            imagePickerController.sourceType = .camera
-            
-//            delegateの設定
-            imagePickerController.delegate = self
-            
-//            モーダルビューで表示
-            present(imagePickerController, animated: true, completion: nil)
-            
-        } else {
-            
-            print("カメラは利用できません。")
+        alertController.addAction(cameraAction)
         }
+        
+        
+//        フォトライブラリーが起動可能かどうかチェック
+        if UIImagePickerController.isSourceTypeAvailable(.photoLibrary) {
+//        フォトライブラリーを起動するための選択肢を定義
+        let photoLibraryAction = UIAlertAction(title: "フォトライブラリー", style: .default, handler:  { (action:UIAlertAction) in
+//            フォトライブラリーを起動
+            let imagePickerController = UIImagePickerController()
+            imagePickerController.sourceType = .photoLibrary
+            imagePickerController.delegate = self
+            self.present(imagePickerController, animated: true, completion: nil)
+        })
+        alertController.addAction(photoLibraryAction)
+        }
+        
+//        キャンセルの選択肢を定義
+        let cancelAction = UIAlertAction(title: "キャンセル", style: .cancel, handler: nil)
+        alertController.addAction(cancelAction)
+        
+//        ipadで落ちてまう対策
+        alertController.popoverPresentationController?.sourceView = view
+        
+//        選択肢を画面に表示
+        present(alertController, animated: true, completion: nil)
+        
         
     }
     
