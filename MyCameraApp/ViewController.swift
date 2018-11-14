@@ -41,7 +41,18 @@ class ViewController: UIViewController, UINavigationBarDelegate, UIImagePickerCo
     }
     
     @IBAction func snsButtonAction(_ sender: Any) {
-    }
+        
+        }
+    
+//        撮影が終わった時に呼ばれるdelegateメソッド
+    func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
+        
+//        撮影したそ写真を、配置したpickerImageに渡す
+            pictureimage.image = info[UIImagePickerController.InfoKey.originalImage] as? UIImage
+        
+//        モーダルビューを閉じる
+            dismiss(animated: true, completion: nil)
+        }
     
 }
 
