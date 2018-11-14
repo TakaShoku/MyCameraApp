@@ -8,7 +8,7 @@
 
 import UIKit
 
-class ViewController: UIViewController, UINavigationBarDelegate, UIImagePickerControllerDelegate {
+class ViewController: UIViewController, UINavigationControllerDelegate, UIImagePickerControllerDelegate {
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -31,16 +31,21 @@ class ViewController: UIViewController, UINavigationBarDelegate, UIImagePickerCo
             imagePickerController.sourceType = .camera
             
 //            delegateの設定
-            imagePickerController.delegate = self as? UIImagePickerControllerDelegate & UINavigationControllerDelegate
+            imagePickerController.delegate = self
             
 //            モーダルビューで表示
             present(imagePickerController, animated: true, completion: nil)
+            
+        } else {
+            
+            print("カメラは利用できません。")
         }
         
-            print("カメラは利用できません。")
     }
     
     @IBAction func snsButtonAction(_ sender: Any) {
+        
+        
         
         }
     
@@ -52,6 +57,8 @@ class ViewController: UIViewController, UINavigationBarDelegate, UIImagePickerCo
         
 //        モーダルビューを閉じる
             dismiss(animated: true, completion: nil)
+        
+            print("pictureimageに写真を渡した。")
         }
     
 }
