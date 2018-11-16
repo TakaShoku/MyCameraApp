@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		AB6479C1219E7786000D156C /* EffectiveViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB6479C0219E7786000D156C /* EffectiveViewController.swift */; };
 		AB99B70A219BDC320081D950 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB99B709219BDC320081D950 /* AppDelegate.swift */; };
 		AB99B70C219BDC320081D950 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB99B70B219BDC320081D950 /* ViewController.swift */; };
 		AB99B70F219BDC320081D950 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AB99B70D219BDC320081D950 /* Main.storyboard */; };
@@ -34,6 +35,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		AB6479C0219E7786000D156C /* EffectiveViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EffectiveViewController.swift; sourceTree = "<group>"; };
 		AB99B706219BDC320081D950 /* MyCameraApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MyCameraApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		AB99B709219BDC320081D950 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		AB99B70B219BDC320081D950 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -99,6 +101,7 @@
 			children = (
 				AB99B709219BDC320081D950 /* AppDelegate.swift */,
 				AB99B70B219BDC320081D950 /* ViewController.swift */,
+				AB6479C0219E7786000D156C /* EffectiveViewController.swift */,
 				AB99B70D219BDC320081D950 /* Main.storyboard */,
 				AB99B710219BDC330081D950 /* Assets.xcassets */,
 				AB99B712219BDC330081D950 /* LaunchScreen.storyboard */,
@@ -258,6 +261,7 @@
 			files = (
 				AB99B70C219BDC320081D950 /* ViewController.swift in Sources */,
 				AB99B70A219BDC320081D950 /* AppDelegate.swift in Sources */,
+				AB6479C1219E7786000D156C /* EffectiveViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
