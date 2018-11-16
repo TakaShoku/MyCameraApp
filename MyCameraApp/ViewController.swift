@@ -64,37 +64,34 @@ class ViewController: UIViewController, UINavigationControllerDelegate, UIImageP
         
     }
     
-    @IBAction func snsButtonAction(_ sender: Any) {
-        
-//        表示画像をアンラップしてシェア画像を取り出す
-        if let shareImage = pictureimage.image {
-            
-//            UIActivityViewControllerに渡す配列を作成
-            let shareItems = [shareImage]
-            
-//            UIActivityViewControllerにシェア画像を渡す
-            let controller = UIActivityViewController(activityItems: shareItems, applicationActivities: nil)
-            
-//            ipadで落ちてまう対策
-            controller.popoverPresentationController?.sourceView = view
-            
-//            UIActivityViewControllerで表示
-            present(controller, animated: true, completion: nil)
-        }
-        
-        }
-    
 //        撮影が終わった時に呼ばれるdelegateメソッド
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
         
 //        撮影したそ写真を、配置したpickerImageに渡す
-            pictureimage.image = info[UIImagePickerController.InfoKey.originalImage] as? UIImage
+            captureImage = info[UIImagePickerController.InfoKey.originalImage] as? UIImage
         
 //        モーダルビューを閉じる
-            dismiss(animated: true, completion: nil)
-        
-            print("pictureimageに写真を渡した。")
+        dismiss(animated: true, completion: {
+            
+//            エフェクト画面に遷移
+            self.performSegue(withIdentifier: "showEffectiveView", sender: nil)
+            
+            })
         }
+    
+//    次の画面遷移するときに渡す画像を格納する場所
+    var captureImage : UIImage?
+    
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        
+//        次の画面のインスタンスを格納
+        if let nextViewController = segue.destination as? EffectiveViewController {
+            
+//            次の画面のインスタンスに取得した画面を渡す
+            nextViewController.orignalImage = captureImage
+        }
+    }
     
 }
 
